@@ -23,10 +23,12 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $attributes = $request->validate([
-           'username' => ['required','unique', 'min:4', 'max:50'],
-           'email' => ['required','unique', 'email', 'min:4', 'max:50'],
+           'name' => ['required', 'min:4', 'max:50'],
+           'email' => ['required', 'email', 'min:4', 'max:50'],
            'password' => ['required','min:4', 'max:50'],
         ]);
+
+        $attributes['password'] = bcrypt($attributes['password']);
 
         $user = User::create($attributes);
 
