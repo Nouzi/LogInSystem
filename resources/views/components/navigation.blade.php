@@ -10,23 +10,16 @@
                 </div>
                 <div class="hidden md:block w-full">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        {{--TODO pridať komponent na link--}}
 
-                        <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
-                           aria-current="page">Profil</a>
-                        <x-navigation.link href="/profil" name="Profil" />
-                        {{--Ukáže členov týmu--}}
-                        <a href="#"
-                           class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Tím</a>
-                        {{--Ukáže Projekty na ktorých pracuje--}}
-                        <a href="#"
-                           class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projekty</a>
-                        <a href="#"
-                           class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Záznamy</a>
+                        {{--TODO Zistiť ako funguje href pri blade komponentoch--}}
+                        <x-navigation.link url="profile" href="/profile" name="Profil"/>
+                        <x-navigation.link url="team"   href="/team" name="Tím"/>
+                        <x-navigation.link url="projects" href="/projects" name="Projekty"/>
+                        <x-navigation.link url="records"   href="/records" name="Záznamy"/>
                         <div class="w-full flex justify-end">
                             <form class="text-white" action="/logout" method="POST">
                                 @csrf
-                                <input type="submit" value="Odhlásiť sa"/>
+                                <input class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" type="submit" value="Odhlásiť sa"/>
                             </form>
                         </div>
                     </div>
